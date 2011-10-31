@@ -109,14 +109,7 @@ dep('chef bootstrap configuration.chef') {
 
   define_var :init_style,
     :message => "Which init style would you like to use?",
-    :default => 'init',
-    :choice_descriptions => {
-      'init' => 'Uses init scripts that are included in the chef gem. Logs will be in /var/log/chef. Only usable with debian/ubuntu and red hat family distributions.',
-      'runit' => 'Uses runit to set up the service. Logs will be in /etc/sv/chef-client/log/main.',
-      'bluepill' => 'Uses bluepill to set up the service.',
-      'daemontools' => 'uses daemontools to set up the service. Logs will be in /etc/sv/chef-client/log/main.',
-      'bsd' => 'Prints a message with the chef-client command to use in rc.local.'
-    }
+    :default => 'init'
 
   met?{ File.exists?(chef_json_path) }
   meet {
